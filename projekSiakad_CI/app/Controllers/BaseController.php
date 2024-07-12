@@ -35,7 +35,7 @@ abstract class BaseController extends Controller
      *
      * @var list<string>
      */
-    protected $helpers = [];
+    protected $helpers = ['auth'];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -46,6 +46,20 @@ abstract class BaseController extends Controller
     /**
      * @return void
      */
+
+    protected $kelasModel;
+    protected $guruModel;
+    protected $siswaModel;
+    protected $kegiatanModel;
+    protected $jadwalModel;
+    protected $administrasiModel;
+    protected $pencapaianModel;
+    protected $indikatorModel;
+    protected $usersModel;
+    protected $artikelModel;
+    protected $kalenderModel;
+
+
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
@@ -54,5 +68,17 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+
+        $this->kelasModel = new \App\Models\kelasModel();
+        $this->guruModel = new \App\Models\guruModel();
+        $this->siswaModel = new \App\Models\siswaModel();
+        $this->kegiatanModel = new \App\Models\kegiatanModel();
+        $this->jadwalModel = new \App\Models\jadwalModel();
+        $this->administrasiModel = new \App\Models\administrasiModel();
+        $this->pencapaianModel = new \App\Models\pencapaianModel();
+        $this->indikatorModel = new \App\Models\indikatorModel();
+        $this->usersModel = new \App\Models\usersModel();
+        $this->kalenderModel = new \App\Models\kalenderModel();
+        $this->artikelModel = new \App\Models\artikelModel();
     }
 }
